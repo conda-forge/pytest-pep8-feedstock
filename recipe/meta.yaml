@@ -1,20 +1,18 @@
 {% set name = "pytest-pep8" %}
 {% set version = "1.0.6" %}
-{% set sha256 = "032ef7e5fa3ac30f4458c73e05bb67b0f036a8a5cb418a534b3170f89f120318" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 032ef7e5fa3ac30f4458c73e05bb67b0f036a8a5cb418a534b3170f89f120318
 
 build:
   noarch: python
   number: 3
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
